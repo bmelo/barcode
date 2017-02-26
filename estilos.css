@@ -1,0 +1,65 @@
+@charset "utf-8";
+/* CSS Document */
+#EspacoLinhas{
+	display:block;
+	height: 1.7mm;
+}
+#Etiqueta{
+	position:relative;
+	height: 25mm;
+	width: 32mm;
+	border: 0.2mm solid #006633;
+	max-width: 32mm;
+	max-height: 25mm;
+}
+#Etiqueta img{
+	position: relative;
+	margin:0;
+	padding: 0;
+	max-width: 32mm;
+}
+#Etiqueta Texto, .Cor, .Numero, .Titulo{
+	padding: 0;
+	margin: 0;
+	font-size: 12pt;
+	line-height:12pt;
+	position: relative;
+}
+#Etiqueta .Cor{
+	font-size: 18pt;
+	line-height:18pt;
+	text-align: center;
+	font-weight: bold;
+	font-family:"Courier New", Courier, monospace;
+	display:block-inline;
+}
+#Etiqueta .Numero{
+	display: inline;
+	float:left;
+	font-size:12pt;
+	line-height:12pt;
+	text-align: left;
+	margin: 0 0 1mm 2mm;
+}
+#Etiqueta .Titulo{
+	display: inline;
+	float:right;
+	font-weight: bold;
+	text-align: right;
+	margin: 0 2mm 1mm 0;
+}
+#Pagina{
+	min-width: 99mm;
+	position: absolute;
+	border: 0.1mm double red;
+	list-style: inside;
+	padding-left: 1.1mm;
+	padding-right: 1.1mm;
+	margin: 0;
+}
+#PaginaEtiquetas{
+	border:0;
+	padding:0;
+	margin:0;
+	border-collapse:collapse;
+}
