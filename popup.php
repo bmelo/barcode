@@ -4,7 +4,7 @@
 	include('escreveEtiquetas.php');
 	session_start();
 	include_once "geraCodigo.php";
-?> 
+?> <h2></h2>
 
 <script> 
 	function download(file){
@@ -46,7 +46,7 @@
 			echo "<tr/><td id='EspacoLinhas'/><tr/>";
 	}
 	$alturaPag = floor((($quant-2)/3)+1)*2.79;
-	escrevePdf($posIni,$quant-$posIni,$codigo,$tipo,$nome,$cor);	
+	//escrevePdf($posIni,$quant-$posIni,$codigo,$tipo,$nome,$cor);	
 ?>
 	</table>
 </div>

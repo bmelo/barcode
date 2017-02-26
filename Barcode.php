@@ -23,7 +23,7 @@
  * @link       http://pear.php.net/package/Image_Barcode
  */
 
-//require_once 'PEAR.php';
+require_once 'PEAR.php';
 
 /**
  * Image_Barcode class
@@ -38,7 +38,7 @@
  * @version    Release: @package_version@
  * @link       http://pear.php.net/package/Image_Barcode
  */
-class Image_Barcode// extends PEAR
+class Image_Barcode extends PEAR
 {
     /**
      * Draws a image barcode
@@ -63,11 +63,27 @@ class Image_Barcode// extends PEAR
      */
     function &draw($text, $type = 'int25', $imgtype = 'png', $bSendToBrowser = true)
     {
+        //Make sure no bad files are included
+        if (!preg_match('/^[a-zA-Z0-9_-]+$/', $type)) {
+            return PEAR::raiseError('Invalid barcode type ' . $type);
+        }
+        if (!include_once('Image/Barcode/' . $type . '.php')) {
+            return PEAR::raiseError($type . ' barcode is not supported');
+        }
+
         $classname = 'Image_Barcode_' . $type;
+
+        if (!in_array('draw',get_class_methods($classname))) {
+            return PEAR::raiseError("Unable to find draw method in '$classname' class");
+        }
 
         @$obj =& new $classname();
 
         $img = &$obj->draw($text, $imgtype);
+
+        if (PEAR::isError($img)) {
+            return $img;
+        }
 
         if ($bSendToBrowser) {
             // Send image to browser

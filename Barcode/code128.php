@@ -42,7 +42,7 @@
  * @link       http://pear.php.net/package/Image_Barcode
  */
 
-require_once "Barcode.php";
+require_once "Image/Barcode.php";
 
 class Image_Barcode_code128 extends Image_Barcode
 {

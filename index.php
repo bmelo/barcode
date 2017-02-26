@@ -1,15 +1,24 @@
 <? 	
 	session_start();
  ?>
+ 
+ <script> 
+	function download(file){
+		window.open('download.php?file='+file);
+		//window.location.href ='download.php?file='+file;
+	}
+</script>
+
 <html>
 	<head>
         <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
         <title>Sistema de Etiquetas</title>
 		<link rel="stylesheet" href="/barras/estilos.css"/>
-</head>
+        <link href="estilos.css" rel="stylesheet" type="text/css">
+    </head>
     <body>
     <form action="<?= $PHP_SELF ?>" method="post">
-        <label for="nome">Nome:
+        <label for="nome">Número:
       <input type="text" name="nome" id="nome" tabindex="1" value="Nº 39"/><br/>
         <label for="cor">Cor:
       <input type="text" name="cor" id="cor" tabindex="2" value="CAFÉ"/><br/>
@@ -28,14 +37,14 @@
             <option value="postnet">postnet</option>
             <option value="upca">upca</option>
       </select><br/>
-      <input type="submit" value="Gerar Etiquetas"><br/><br/>
+      <input type="submit" class="botao" value="Gerar Etiquetas">
+      <br/><br/>
     </form>
-    <div id="Pagina">
+    <div id="Pagina" class="espaco">
     	<table id="paginaEtiquetas">
 			<?
 			include_once "escreveEtiquetas.php";
             if($_POST["codigo"]){
-		echo "CARALHOOOOOOOOO";
 				$_SESSION['posIni'] = $_POST["posIni"];
 				$_SESSION['quant'] = $_POST["quant"];
 				$_SESSION['codigo'] = $_POST["codigo"];
@@ -43,7 +52,7 @@
 				$_SESSION['nome'] = $_POST["nome"];
 				$_SESSION['cor'] = $_POST["cor"];
 				escreveBrowser($_POST["posIni"],$_POST["quant"],$_POST["codigo"],$_POST["tipo"],$_POST["nome"],$_POST["cor"]);
-				//escrevePdf(); 
+				escrevePdf($_POST["posIni"],$_POST["quant"],$_POST["codigo"],$_POST["tipo"],$_POST["nome"],$_POST["cor"]); 
 			?>
 				<script>	
 					var ender = "popup.php";

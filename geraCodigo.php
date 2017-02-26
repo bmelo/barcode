@@ -1,6 +1,6 @@
 <?
 	function geraCodigo($texto,$tipo="code128",$tipoImg="png"){
-		require_once("Barcode.php"); // chamada para a biblioteca Image_Barcode
+		require_once("Image/Barcode.php"); // chamada para a biblioteca Image_Barcode
 		$pathImagem = "codigos/".$texto."_".$tipo.".png";
 		$img = Image_Barcode::draw($texto, $tipo,$tipoImg,0); // Gerando o código de barras
 		

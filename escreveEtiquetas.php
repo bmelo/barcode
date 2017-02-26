@@ -1,4 +1,6 @@
 <?php
+	define('FPDF_FONTPATH','fpdf/font/');
+	require('fpdf/fpdf.php');
 	include_once "geraCodigo.php";
 	function escreveBrowser($posIni,$quant,$codigo,$tipo,$nome,$cor){
 		$posIni = ($posIni>0)?$posIni:1;
@@ -10,7 +12,7 @@
 				echo "<span class='Numero'>".$nome."</span>";
 				echo "<span class='Titulo'>Mariah</span>";
 				echo "<br/><center><div class='Cor'>".$cor."</center></div>";
-				//echo "<img src=".$imgLink."></td>";
+				echo "<img src=".$imgLink."></td>";
 			}else{
 				echo "<td id='Etiqueta'/>"; // escreve etiqueta vazia!
 			}
